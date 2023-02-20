@@ -6,7 +6,7 @@ const App_1 = require("./App");
 function renderInBrowser() {
     const containerEl = document.getElementById('app');
     if (!containerEl) {
-        throw new Error('element not found');
+        throw new Error('element #app not found');
     }
     (0, client_1.createRoot)(containerEl).render((0, jsx_runtime_1.jsx)(App_1.App, {}));
 }

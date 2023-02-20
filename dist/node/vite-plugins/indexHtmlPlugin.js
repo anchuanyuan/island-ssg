@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.viteIndexTemplatePlugin = void 0;
 const promises_1 = require("fs/promises");
-const index_1 = require("../constans/index");
+const index_1 = require("../constants/index");
 function viteIndexTemplatePlugin() {
     return {
         name: 'vite-plugin-template-html',

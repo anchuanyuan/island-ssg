@@ -1,6 +1,7 @@
 import { cac } from 'cac';
 import * as path from 'path';
 const { version, name: cliName } = require('../../package.json');
+import { build } from './build';
 
 import { createViteServe } from './dev';
 
@@ -19,8 +20,9 @@ cli
 cli
   .command('[root] build for production')
   .alias('build')
-  .action(async () => {
-    await console.log('building...');
+  .action(async (root: string) => {
+    root = path.resolve(root);
+    await build(root);
   });
 
 cli.parse();

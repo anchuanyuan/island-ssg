@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises';
 import { Plugin, ViteDevServer } from 'vite';
-import { TEMPLATE_HTML_PATH, CLIENT_ENTRY_PATH } from '../constans/index';
+import { TEMPLATE_HTML_PATH, CLIENT_ENTRY_PATH } from '../constants/index';
 
 export function viteIndexTemplatePlugin(): Plugin {
   return {
