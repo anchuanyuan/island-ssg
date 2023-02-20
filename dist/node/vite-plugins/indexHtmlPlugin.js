@@ -13,11 +13,7 @@ function viteIndexTemplatePlugin() {
                     // 读取内容
                     try {
                         let html = await (0, promises_1.readFile)(index_1.TEMPLATE_HTML_PATH, 'utf-8');
-                        // html = await server.transformIndexHtml(
-                        //   req.url,
-                        //   html,
-                        //   req.originalUrl
-                        // );
+                        html = await server.transformIndexHtml(req.url, html, req.originalUrl);
                         res.statusCode = 200;
                         res.setHeader('Content-Type', 'text/html');
                         // 响应给浏览器
