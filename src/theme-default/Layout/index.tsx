@@ -4,10 +4,10 @@ export function Layout() {
   const [count, setCount] = useState(0);
   return (
     <div>
-      <h1>This is Layout Component 3333</h1>
+      <h1>This is Layout Component 3asdffa</h1>
       <div>
         {count}
-        <button onClick={() => setCount(count + 1)}>Add Count</button>
+        <button onClick={() => setCount(count + 2)}>Add Count</button>
       </div>
     </div>
   );

@@ -1,11 +1,27 @@
 import { readFile } from 'fs/promises';
 import { Plugin, ViteDevServer } from 'vite';
-import { TEMPLATE_HTML_PATH } from '../constans/index';
+import { TEMPLATE_HTML_PATH, CLIENT_ENTRY_PATH } from '../constans/index';
 
 export function viteIndexTemplatePlugin(): Plugin {
   return {
     name: 'vite-plugin-template-html',
     apply: 'serve',
+    // 作用: 自动注入所需script入口文件
+    transformIndexHtml(html) {
+      return {
+        html,
+        tags: [
+          {
+            tag: 'script',
+            attrs: {
+              type: 'module',
+              src: `/@fs/${CLIENT_ENTRY_PATH}`,
+            },
+            injectTo: 'body',
+          },
+        ],
+      };
+    },
     configureServer(server: ViteDevServer) {
       return () => {
         server.middlewares.use(async (req, res, next) => {

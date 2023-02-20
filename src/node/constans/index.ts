@@ -2,6 +2,15 @@ import * as path from 'path';
 
 export const PACKAGE_ROOT = path.join(__dirname, '../../../');
 
-export const TEMPLATE_HTML_PATH = path.join(PACKAGE_ROOT, 'src/template.html');
+export const TEMPLATE_HTML_PATH = path.join(
+  PACKAGE_ROOT,
+  'src',
+  'template.html'
+);
 
-console.log(TEMPLATE_HTML_PATH);
+export const CLIENT_ENTRY_PATH = path.join(
+  PACKAGE_ROOT,
+  'src',
+  'runtime',
+  'client-entry.tsx'
+);

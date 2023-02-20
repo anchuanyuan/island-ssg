@@ -7,6 +7,22 @@ function viteIndexTemplatePlugin() {
     return {
         name: 'vite-plugin-template-html',
         apply: 'serve',
+        // 作用: 自动注入所需script入口文件
+        transformIndexHtml(html) {
+            return {
+                html,
+                tags: [
+                    {
+                        tag: 'script',
+                        attrs: {
+                            type: 'module',
+                            src: `/@fs/${index_1.CLIENT_ENTRY_PATH}`,
+                        },
+                        injectTo: 'body',
+                    },
+                ],
+            };
+        },
         configureServer(server) {
             return () => {
                 server.middlewares.use(async (req, res, next) => {
