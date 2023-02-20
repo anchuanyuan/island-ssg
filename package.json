@@ -11,7 +11,8 @@
   "scripts": {
     "build:w": "tsc -w",
     "dev": "node bin/index.js dev src",
-    "build:pro": "node bin/index.js build docs"
+    "build:pro": "node bin/index.js build docs",
+    "preview": "vite docs/build"
   },
   "bin": {
     "island": "./bin/index.js"

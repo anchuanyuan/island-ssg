@@ -61,7 +61,7 @@ async function renderPage(render, root, clientBundle) {
     <meta name="description" content="xxx">
   </head>
   <body>
-    <div id="root">${appHtml}</div>
+    <div id="app">${appHtml}</div>
     <script type="module" src="/${clientChunk?.fileName}"></script>
   </body>
 </html>`.trim();
