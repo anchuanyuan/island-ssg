@@ -7,7 +7,7 @@ import * as fs from 'fs-extra';
 import { log } from 'console';
 
 export async function build(root: string = process.cwd()) {
-  // todo
+  // 客户端构建产物 生成到build目录中 构建后用到所需的js等静态资源
   const clientBuild = async () => {
     return viteBuild({
       mode: 'production',
@@ -23,6 +23,7 @@ export async function build(root: string = process.cwd()) {
       },
     });
   };
+  // 服务端构建 产物 构建组件代码对应的html字符串
   const serverBuild = async () => {
     return viteBuild({
       mode: 'production',
@@ -39,9 +40,11 @@ export async function build(root: string = process.cwd()) {
       },
     });
   };
+  //客户端产物对象
   const clientBuildRes = await clientBuild();
+  // debugger
+  //  服务端产物 构建只临时目录  buildServer中
   await serverBuild();
-  //  serverEntry产物如何引入????
   const serverEntryPath = path.join(root, 'buildServer', 'ssr-entry.js');
   const { ssrRender } = require(serverEntryPath);
   await renderPage(ssrRender, root, clientBuildRes);
@@ -71,7 +74,8 @@ export async function renderPage(
     <script type="module" src="/${clientChunk?.fileName}"></script>
   </body>
 </html>`.trim();
-  await fs.ensureDir(path.join(root, 'buildClient'));
+  await fs.ensureDir(path.join(root, 'build'));
   await fs.writeFile(path.join(root, 'build/index.html'), html);
+  // 移除服务端生成的文件
   await fs.remove(path.join(root, 'buildServer'));
 }
