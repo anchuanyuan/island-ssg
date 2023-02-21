@@ -10,7 +10,7 @@
 
   "scripts": {
     "build:w": "tsc -w",
-    "dev": "node bin/index.js dev src",
+    "dev": "tsc && node bin/index.js dev src",
     "build:pro": "tsc && node bin/index.js build docs",
     "preview": "npm run build:pro && vite docs/build"
   },
