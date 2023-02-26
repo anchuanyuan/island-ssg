@@ -5,13 +5,13 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.14.0",
+    "tsup": "^6.6.3",
     "typescript": "^4.9.3"
   },
-
   "scripts": {
-    "build:w": "tsc -w",
+    "build:w": "tsc --watch",
     "dev": "tsc && node bin/index.js dev src",
-    "build:pro": "tsc && node bin/index.js build docs",
+    "build": "tsup && node bin/index.js build docs",
     "preview": "npm run build:pro && vite docs/build"
   },
   "bin": {
