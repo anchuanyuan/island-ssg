@@ -5,7 +5,7 @@ import * as path from 'path';
 //  fs-extra 库
 import * as fs from 'fs-extra';
 import { log } from 'console';
-
+//  todo clientBuild 与 serverBuild 相同代码较多可以抽离成公共方法
 export async function build(root: string = process.cwd()) {
   // 客户端构建产物 生成到build目录中 构建后用到所需的js等静态资源
   const clientBuild = async () => {

@@ -4,6 +4,7 @@ import { TEMPLATE_HTML_PATH, CLIENT_ENTRY_PATH } from '../constants/index';
 
 export function viteIndexTemplatePlugin(): Plugin {
   return {
+    // @ts-ignore
     name: 'vite-plugin-template-html',
     apply: 'serve',
     // 作用: 自动注入所需script入口文件
